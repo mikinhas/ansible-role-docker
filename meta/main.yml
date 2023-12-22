@@ -1,0 +1,5 @@
+---
+
+galaxy_info:
+  role_name: ansible_role_docker
+  namespace: mikinhas
