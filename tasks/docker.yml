@@ -36,5 +36,9 @@
     - docker-ce
     - docker-ce-cli
     - containerd.io
+<<<<<<< Updated upstream
+=======
+    - docker-buildx-plugin
+>>>>>>> Stashed changes
 
 ...
