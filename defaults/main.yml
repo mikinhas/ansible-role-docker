@@ -4,4 +4,7 @@
 docker_install_compose: true
 docker_compose_version: "1.29.2"
 
+docker_networks:
+  - foo
+  - bar
 ...
