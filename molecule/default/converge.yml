@@ -5,3 +5,5 @@
   become: true
   roles:
     - ansible-role-docker
+  vars:
+    docker_user: vagrant
