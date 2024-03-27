@@ -21,5 +21,14 @@
     update_cache: true
   loop: "{{ docker_packages }}"
 
+- name: Add user to docker group
+  become: true
+  ansible.builtin.user:
+    name: "{{ docker_user }}"
+    groups: docker
+    append: yes
+
+- name: Reset connection so docker group is picked up.
+  meta: reset_connection
 
 ...
