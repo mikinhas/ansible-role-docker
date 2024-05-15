@@ -1,5 +1,4 @@
 ---
-
 docker_packages:
   - docker-ce
   - docker-ce-cli
@@ -7,7 +6,6 @@ docker_packages:
   - docker-buildx-plugin
   - docker-compose-plugin
 
-docker_networks:
-  - foo
-  - bar
-...
+#docker_networks:
+#  - foo
+#  - bar

@@ -1,18 +1,12 @@
 ---
 
-- name: Install pip
+- name: Install prerequisites
   become: true
   ansible.builtin.apt:
-    name: python3-pip
+    name: "python3-requests"
     update_cache: true
-
-- name: Install python packages
-  ansible.builtin.pip:
-    name: "requests"
-    extra_args: --user
 
 - name: Create networks
   community.docker.docker_network:
     name: "{{ item }}"
   loop: "{{ docker_networks }}"
-  when: docker_networks is defined
