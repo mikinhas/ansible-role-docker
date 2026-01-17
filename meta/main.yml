@@ -1,11 +1,11 @@
 ---
 
 galaxy_info:
-  role_name: ansible_role_docker
+  role_name: docker
   namespace: mikinhas
   author: Michael MACHADO
-  description: Docker for Ubuntu
-  license: "license (BSD, MIT)"
+  description: Install docker
+  license: "MIT"
   min_ansible_version: "2.16"
   platforms:
     - name: Ubuntu
