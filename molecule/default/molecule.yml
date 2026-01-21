@@ -4,7 +4,7 @@ dependency:
 driver:
   name: vagrant
   provider:
-    libvirt
+    name: virtualbox
 platforms:
   - name: ansible-role-docker-jammy
     box: generic/ubuntu2204
