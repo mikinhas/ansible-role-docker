@@ -1,0 +1,5 @@
+---
+project_dir: .
+
+mock_roles:
+  - ansible-role-docker

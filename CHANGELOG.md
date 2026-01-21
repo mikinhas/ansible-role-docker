@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Add `requirements.yml` for Ansible collections
 - Add CHANGELOG.md
 - Add pre-commit configuration with yamllint and ansible-lint
+- Add `.ansible-lint` configuration with mock roles
 
 ## [0.1.0] - 2024-06-01
 
