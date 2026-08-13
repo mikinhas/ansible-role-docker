@@ -1,6 +1,6 @@
 # Ansible Role: Docker
 
-Ansible role to install and configure Docker CE on Ubuntu.
+Ansible role to install and configure Docker CE on Ubuntu and Debian.
 
 ## Description
 
@@ -13,7 +13,10 @@ This role performs the following actions:
 ## Requirements
 
 - Ansible >= 2.16
-- Ubuntu 22.04 (Jammy)
+- Ubuntu 22.04 (Jammy) or Debian 12 (Bookworm)
+
+The repository is declared with `ansible.builtin.deb822_repository`, which needs
+`python3-debian` on the target — the role installs it itself.
 
 ### Required Collections
 
@@ -26,11 +29,13 @@ collections:
 
 ### Default Variables
 
-| Variable           | Default              | Description                                    |
-| ------------------ | -------------------- | ---------------------------------------------- |
-| `docker_user`      | `{{ ansible_user }}` | User to add to the docker group                |
-| `docker_packages`  | see below            | List of Docker packages to install             |
-| `docker_networks`  | undefined            | List of Docker networks to create (optional)   |
+| Variable                   | Default                             | Description                                     |
+| -------------------------- | ----------------------------------- | ----------------------------------------------- |
+| `docker_user`              | `{{ ansible_user }}`                | User to add to the docker group                 |
+| `docker_packages`          | see below                           | List of Docker packages to install              |
+| `docker_networks`          | undefined                           | List of Docker networks to create (optional)    |
+| `docker_apt_distribution`  | `{{ ansible_distribution \| lower }}` | Docker repository flavour (`ubuntu`, `debian`) |
+| `docker_apt_architecture`  | `amd64`                             | Architecture published from the repository      |
 
 ### Default Packages
 
@@ -98,20 +103,21 @@ ansible-role-docker/
 │   ├── docker.yml        # Docker installation
 │   └── networks.yml      # Network management
 └── molecule/
-    ├── ansible-role-docker-with-networks/
-    └── ansible-role-docker-without-networks/
+    ├── default/                             # Installation without networks
+    └── ansible-role-docker-with-networks/   # Installation with networks
 ```
 
 ## Testing
 
-This role includes two Molecule test scenarios:
+This role includes two Molecule test scenarios, each running against Ubuntu
+22.04 and Debian 12:
 
 ```bash
+# Test installation without networks
+molecule test
+
 # Test installation with networks
 molecule test -s ansible-role-docker-with-networks
-
-# Test installation without networks
-molecule test -s ansible-role-docker-without-networks
 ```
 
 ### Test Dependencies
