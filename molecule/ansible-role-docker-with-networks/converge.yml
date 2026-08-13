@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: true
   roles:
-    - ansible-role-docker
+    - mikinhas.docker
   vars:
     docker_user: vagrant
     docker_networks:
